@@ -1,0 +1,47 @@
+﻿
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
+#main-head {
+    text-align: center;
+    font-size: 50px;
+}
+
+header section time, header section div {
+    font-size: 35px;
+    display: inline;
+    margin: 20px 50px;
+}
+
+header section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav li a:hover {
+    background-color: #A5A299;
+    text-decoration: none;
+    color: #FEFFFE;
+}
+
+nav li a {
+    display: block;
+    color: #FEFFFE;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #8D818c;
+    top: 0;
+}
+
+nav li {
+    float: left;
+}
