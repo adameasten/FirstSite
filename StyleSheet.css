@@ -8,10 +8,35 @@ body {
     font-size: 50px;
 }
 
+main h3{
+    text-align:center;
+}
+
+main div{
+    position:absolute;
+    margin-top: 20px;
+}
+
+#player-card{
+    left: 20vw;
+}
+
+#player-deck {
+    left: 34vw;
+}
+
+#computer-deck{
+    right: 41vw;
+}
+
+#discard{
+    right: 20vw;
+}
+
 header section time, header section div {
     font-size: 35px;
     display: inline;
-    margin: 20px 50px;
+    margin: 20px 140px;
 }
 
 header section {
