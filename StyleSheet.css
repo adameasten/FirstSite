@@ -18,19 +18,19 @@ main div{
 }
 
 #player-card{
-    left: 20vw;
+    left: 15vw;
 }
 
 #player-deck {
-    left: 34vw;
+    left: 30vw;
 }
 
 #computer-deck{
-    right: 41vw;
+    right: 30vw;
 }
 
 #discard{
-    right: 20vw;
+    right: 15vw;
 }
 
 header section time, header section div {
