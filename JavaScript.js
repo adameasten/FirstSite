@@ -1,48 +1,10 @@
 ﻿
 var cardDeck = randomCards();
 var bothDecksSplitted = splitCardDeck(cardDeck);
-//var resultOfCardsCompared = compareDrawedCards(computersDrawedCard, playersDrawedCard);
-
-//console.log(resultOfCardsCompared);
-
-//function compareDrawedCards(computersDrawedCard, playersDrawedCard) {
-//    if (computersDrawedCard.value === playersDrawedCard.value || computersDrawedCard.number === playersDrawedCard.number) {
-//        return 1;
-//    }
-//    else if (computersDrawedCard.value === playersDrawedCard.value && computersDrawedCard.number === playersDrawedCard.number) {
-//        return 2;
-//    }
-//    else {
-//        return -1;
-//    }
-//}
-
-function ComputerDrawsCard(bothDecksSplitted, computerDrawFunction) {
-    setTimeout(function () {
-        let computercard = bothDecksSplitted.playerDeck.pop();
-        computerDrawFunction(computercard);
-    }, 1500);
-}
-
-function PlayerDrawsCard(bothDecksSplitted, playerDrawFunction) {
-    setTimeout(function () {
-        let playercard = bothDecksSplitted.computerDeck.pop();
-        playerDrawFunction(playercard);
-    }, 2500);
-}
-
-ComputerDrawsCard(bothDecksSplitted, function (card) {
-    console.log("computers card: " + card.number + card.value);
-});
-
-PlayerDrawsCard(bothDecksSplitted, function (card) {
-    console.log("players card: " + card.number + card.value);
-});
-
 
 function randomCards() {
     let counter = [];
-    let colors = [ "H", "S", "C", "D"] ;
+    let colors = ["H", "S", "C", "D"];
     do {
         let x = Math.floor((Math.random() * 13));
         let y = Math.floor((Math.random() * 4));
@@ -89,24 +51,44 @@ function splitCardDeck(cardDeck) {
     return obj;
 }
 
-//let el = document.querySelector("main div");
+let theGame = {
+    currentComputerCard: undefined,
+    score: 0,
+    ComputerDrawsCard: function (bothDecksSplitted, computerDrawFunction) {
+        setTimeout(function () {
+            let computercard = currentComputerCard = bothDecksSplitted.playerDeck.pop();
+            computerDrawFunction(computercard);
+        }, 1500);
+    },
+};
 
-//console.log(el);
+PlayerDrawsCard(bothDecksSplitted, function (card) {
+    console.log("players card: " + card.number + card.value);
+    theGame.score += compareDrawedCards(card, theGame.currentComputerCard);
+});
 
-//el.addEventListener("click", function (event) {
+theGame.ComputerDrawsCard(bothDecksSplitted, function (card) {
+    console.log("computers card: " + card.number + card.value);
+    theGame.currentComputerCard = card;
+});
 
-//    setTimeout(function () {
-//        console.log(event);
-//        let newDiv = document.createElement("div");
-//        el.appendChild(newDiv);
-//        newDiv.innerHTML = "<strong>VERY IMPORTANT!!!!!";
-//    }, 1000);
-//});
+function PlayerDrawsCard(bothDecksSplitted, playerDrawFunction) {
+    setTimeout(function () {
+        let playercard = bothDecksSplitted.computerDeck.pop();
+        playerDrawFunction(playercard);
+    }, 2500);
+};
 
-//alert("before?");
+function compareDrawedCards(playercard, computercard) {
+    if (computercard.value === playercard.value || computercard.number === playercard.number) {
+        theGame.score += 1;
+    }
+    else if (computercard.value === playercard.value && computercard.number === playercard.number) {
+        theGame.score += 2;
+    }
+    else {
+        theGame.score += -1;
+    }
+    console.log(theGame.score);
+};
 
-//window.alert = function (message) {
-//    console.log("ALERT!!!!" + message);
-//};
-    
-//alert("after?");
