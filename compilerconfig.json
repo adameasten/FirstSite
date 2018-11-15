@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "StyleSheet.css",
+    "inputFile": "StyleSheet.scss"
+  },
+  {
+    "outputFile": "hej.css",
+    "inputFile": "hej.scss"
+  }
+]

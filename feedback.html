@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-reboot.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="FeedbackStyleSheet.css" type="text/css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header><h1 id="head">Card Game</h1>
+    
+        <nav>
+            <ul>
+                <li><a href="/">Play</a></li>
+                <li><a href="/">Saved Games</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form id="submitForm">
+        <fieldset>
+            <legend>User Input</legend>
+            <label>Name:</label><input type="text" placeholder="Enter Name" name="Name" required><br />
+            <label>Rating:</label><input type="range" min="0" max="5" placeholder="Rate us, 0-5" name="Rating"><br />
+            <label>Favourite Color:</label><input type="color" name="Color"><br />
+            <input type="submit" name="OK"><br />
+        </fieldset>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Rating</td>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    <script src="JqueryFeedback.js"></script>
+</body>
+</html>

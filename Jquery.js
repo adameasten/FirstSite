@@ -1,6 +1,7 @@
 ﻿let playerCard;
 let computerCard;
 let playerscore = 0;
+let counter = 0;
 
 $(function () {
 
@@ -15,13 +16,13 @@ $(function () {
                     .done(function (drawData) {
                         setPlayerCard(drawData.cards[0]);
 
-                        setTimeout(function () {
+                        setInterval(function () {
                             $.getJSON(baseUrl + deckId + "/draw/")
                                 .done(function (computerDraw) {
                                     computerCard = computerDraw.cards[0].code;
                                     $("#computer-deck img").attr("src", computerDraw.cards[0].image);
                                 });
-                        }, 1000);
+                        }, 2000);
                     });
             });
     });
@@ -31,6 +32,10 @@ $(function () {
         console.log(playerscore);
     });
 
+    setInterval(function () {
+        counter++
+        $("#gametimer").text(counter)
+    }, 1000);
 });
 
 function setPlayerCard(card) {
@@ -47,5 +52,6 @@ function SetScore(computercard, playercard) {
     else {
         playerscore += -1;
     }
+
     $("#gamepoints").text(playerscore);
 };

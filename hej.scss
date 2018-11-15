@@ -1,0 +1,19 @@
+﻿$baseColor: blue;
+$reasonableSpace: 20px;
+
+body {
+    background-color: darken($baseColor, 30%);
+}
+
+div{
+    color : $baseColor;
+    margin : $reasonableSpace + 5px;
+
+    .cool{
+        border: 2px dashed red;
+
+        img{
+            margin:50px;
+        }
+    }
+}

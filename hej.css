@@ -1,0 +1,10 @@
+﻿body {
+  background-color: #000066; }
+
+div {
+  color: blue;
+  margin: 25px; }
+  div .cool {
+    border: 2px dashed red; }
+    div .cool img {
+      margin: 50px; }
